@@ -2,7 +2,7 @@
   "name": "rectangle_love",
   "version": "1.0.0",
   "description": "Finds the intersection rectangle between two rectangles",
-  "main": "rectangle.js",
+  "main": "rectangle-intersect.js",
   "directories": {
     "test": "test/"
   },

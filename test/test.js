@@ -1,5 +1,5 @@
 var assert = require('assert');
-var intersection = require('../rectangle_intersect');
+var intersection = require('../rectangle-intersect');
 
 var first_rectangle, second_rectangle, expected_rectangle, resulting_rectangle;
 
