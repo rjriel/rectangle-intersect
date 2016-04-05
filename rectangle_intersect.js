@@ -1,6 +1,20 @@
 module.exports = function(first,second) {
 
   var NON_INTERSECT = "The given rectangles do not intersect";
+  var INVALID_OBJECT = " is not a valid rectangle object";
+
+  isValidRectangle = function(rectangle) {
+    return rectangle.leftX != null && !isNaN(rectangle.leftX)
+        && rectangle.bottomY != null && !isNaN(rectangle.bottomY)
+        && rectangle.width != null && !isNaN(rectangle.width)
+        && rectangle.height != null && !isNaN(rectangle.height)
+  };
+
+  if (!isValidRectangle(first))
+    return "Rectangle 1" + INVALID_OBJECT;
+
+  if (!isValidRectangle(second))
+    return "Rectangle 2" + INVALID_OBJECT;
 
   if (first.leftX < second.leftX && first.leftX + first.width < second.leftX) {
     return NON_INTERSECT;

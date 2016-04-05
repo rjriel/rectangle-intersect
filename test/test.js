@@ -1,5 +1,5 @@
 var assert = require('assert');
-var intersection = require('./rectangle_intersect');
+var intersection = require('../rectangle_intersect');
 
 var first_rectangle, second_rectangle, expected_rectangle, resulting_rectangle;
 
@@ -146,6 +146,20 @@ describe('Valid Tests', function() {
   });
 });
 describe('Invalid Tests', function() {
+  it('1st rectangle is not a valid rectangle', function() {
+    first_rectangle = { };
+    second_rectangle = { leftX: 6, bottomY: 5, width: 4, height: 4 };
+    expected_rectangle = "Rectangle 1 is not a valid rectangle object";
+    resulting_rectangle = intersection(first_rectangle, second_rectangle);
+    assert.deepEqual(expected_rectangle, resulting_rectangle);
+  });
+  it('2nd rectangle is not a valid rectangle', function() {
+    first_rectangle = { leftX: 6, bottomY: 5, width: 4, height: 4 };
+    second_rectangle = { };
+    expected_rectangle = "Rectangle 2 is not a valid rectangle object";
+    resulting_rectangle = intersection(first_rectangle, second_rectangle);
+    assert.deepEqual(expected_rectangle, resulting_rectangle);
+  });
   it('1st rectangle further left, matching bottom, rectangles do not intersect', function() {
     first_rectangle = { leftX: 1, bottomY: 5, width: 4, height: 4 };
     second_rectangle = { leftX: 6, bottomY: 5, width: 4, height: 4 };
