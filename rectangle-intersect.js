@@ -54,9 +54,9 @@ module.exports = function(first,second) {
      top to bottom. */
   y_values = [];
   y_values.push(first.bottomY);
-  y_values.push(first.bottomY-first.height);
+  y_values.push(first.bottomY+first.height);
   y_values.push(second.bottomY);
-  y_values.push(second.bottomY-second.height);
+  y_values.push(second.bottomY+second.height);
   y_values.sort((a,b)=>a-b);
   
   /* based on the above sorting of the x and y values we can make
@@ -72,7 +72,7 @@ module.exports = function(first,second) {
   */
   return {
     leftX: x_values[1],
-    bottomY: y_values[2],
+    bottomY: y_values[1],
     width: x_values[2]-x_values[1],
     height: y_values[2]-y_values[1]
   };
