@@ -46,7 +46,7 @@ module.exports = function(first,second) {
   x_values.push(first.leftX+first.width);
   x_values.push(second.leftX);
   x_values.push(second.leftX+second.width);
-  x_values.sort();
+  x_values.sort((a,b)=>a-b);
   
   /* create an array that consists of the top and bottom Y values
      for each rectangle, result in 4 Y axis values. These values
@@ -57,7 +57,7 @@ module.exports = function(first,second) {
   y_values.push(first.bottomY-first.height);
   y_values.push(second.bottomY);
   y_values.push(second.bottomY-second.height);
-  y_values.sort();
+  y_values.sort((a,b)=>a-b);
   
   /* based on the above sorting of the x and y values we can make
      the following assumptions:
